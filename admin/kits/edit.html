@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Site -->
+    <title>Tjbeats | Official Website</title>
+    <link rel="icon" href="../../images/favicon.png">
+    <!-- //Site -->
+
+    <!-- Site  Metas -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- //Site  Metas -->
+
+	<!-- Styles -->
+	<link href="../../css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../css/font-awesome.css">
+	<link rel="stylesheet" href="../../css/font-awesome.min.css">
+
+    <!-- Custom Styling -->
+    <link href="../../style.css" rel="stylesheet">
+
+    <!-- admin Styling -->
+    <link href="../../css/admin.css" rel="stylesheet">
+
+    <!-- Custom Responsive Styling -->
+    <link href="../../responsive.css" rel="stylesheet">
+
+	<!-- // Styles -->
+</head>
+<body>
+    <!-- LOADER -->
+    <div class="loader_bg hidden">
+        <div class="loader"></div>
+    </div>
+    <!-- // END LOADER -->
+
+	<nav class="navbar navbar-expand-xl fixed-top navbar-dark shadow">
+        <a class="navbar-brand" href="#"><img src="../../images/logo.png" alt="logo" width="90"/></a>
+        <button class="navbar-toggler navbar-toggler-center text-light" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-right" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            </ul>
+
+        	<ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" href="#">Subscribe</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="admin-content">
+        <div class="side-bar">
+            <ul>
+                <li><a href="../posts/index.html">Manage Posts</a></li>
+                <li><a href="../categories/index.html">Manage Categories</a></li>
+                <li><a href="../beats/index.html">Manage Beats</a></li>
+                <li><a href="../kits/index.html">Manage Kits</a></li>
+                <li><a href="../users/index.html">Manage Users</a></li>
+            </ul>
+        </div>
+        <div class="content-bar">
+            <div class="container">
+                <h5 class="text-uppercase text-light"><span class="fa fa-edit"></span> Edit Kit</h5><hr/>
+                <div class="button-group">
+                    <a href="create.html" class="btn btn-sm btn-secondary"><span class="fa fa-plus"></span> Add kit</a>
+                    <a href="index.html" class="btn btn-sm btn-info"><span class="fa fa-eye"></span> Manage kits</a>
+                </div><br/>
+
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Kit Image</span>
+                        </div>
+                        <div class="custom-file">
+                            <input name="kitImage" type="file" class="form-control" placeholder="Post Image">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Kit Title</span>
+                        </div>
+                        <input name="kitTitle" type="text" aria-label="kitTitle" class="form-control">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea name="kitText" id="editor" class="form-control"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Kit Download Link</span>
+                        </div>
+                        <input name="kitDownloadLink" type="text" aria-label="kitDownloadLink" class="form-control">
+                    </div>
+                    <button name="addKit" type="submit" class="btn btn-success">
+                        <span class="fa fa-edit"></span>
+                        Update Kit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script src="../../js/all.js"></script>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+
+<script src="../../js/popup.js"></script>
+<!--
+<script>
+	setTimeout(function() {
+		$('.loader_bg').fadeToggle();
+	}, 2000);
+</script>
+-->
+
+
+
+<script src="../../js/ckeditor.js"></script>
+
+<script>
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+<!-- SCRIPTS -->
+</html>
