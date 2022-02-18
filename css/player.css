@@ -1,0 +1,293 @@
+/*-------------------------------------------------------------------------------------------------------
+    //MUSIC PLAYER
+--------------------------------------------------------------------------------------------------------*/
+.audio-player {
+    padding:0;
+}
+.beat-view {
+    border-radius:0;
+    rgba(255,255,255,.08);
+}
+.beat-view .bg-cover {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+    background-size:50000px;
+    background-position:center;
+    height:150px;
+    opacity:.2;
+    border-radius:0;
+}
+.admin .beat-view .bg-cover {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+}
+.beat-view .title {
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    top:16px;
+    left:140px;
+    position:absolute;
+    max-width:100%;
+    transform:scale(1);
+    text-align:left;
+    letter-spacing:0;
+}
+.beat-view .genre {
+    color:#fff;
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:60px;
+    left:140px;
+    font-weight:600;
+}
+.beat-view .cover {
+    position:absolute;
+    width:100px;
+    height:100px;
+    top:25px;
+    left:25px;
+    border-radius:8px;
+}
+.player {
+    height:55px;
+    width:100%;
+    position:absolute;
+    border-top:2px solid none;
+}
+.title {
+    color:#fff;
+    font-weight:bold;
+    top:0;
+    position:absolute;
+    width:calc(100% - 175px);
+    left:175px;
+    transform:scale(.7);
+}
+.player .genre {
+    display:none;
+}
+.pl {
+    cursor:pointer;
+    height:34px;
+    left:270px;
+    position:absolute;
+    top:20px;
+    width:32px;
+}
+.pl:hover {
+    top:21px;
+}
+.pl-ht {
+    height:75px;
+}
+.bg-cover {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+    background-size:50000px;
+    background-position:center;
+    height:55px;
+    opacity:.1;
+}
+.admin .bg-cover {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+}
+.cover {
+    background:
+        transparent url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+    background-size:cover;
+    height:41px;
+    left:120px;
+    position:absolute;
+    top:7px;
+    width:41px;
+    border-radius:4px;
+}
+.admin .cover {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+}
+.controls {
+    color:#eee;
+    cursor:pointer;
+    left:0;
+    position:absolute;
+    top:50%;
+    width:120px;
+    transform:translateY(-50%);
+    z-index:2;
+}
+.controls .play, .controls .pause, .controls .rew, .controls .fwd {
+    float: left;
+    height: 100%;
+    width: 33%;
+    text-align:center;
+}
+.controls .play {
+    transition:.3s all ease-in-out;
+    transform:scale(1.2);
+}
+.controls .pause {
+    transition:.3s all ease-in-out;
+    transform:scale(1.2);
+    display:none;
+}
+
+.controls .rew {
+    transition:.3s;
+    transform:scale(0.8);
+}
+
+.controls .fwd {
+    transition:.3s;
+    transform:scale(0.8);
+}
+
+.controls .play:hover {
+    opacity:.8;
+    transform:scale(1.4);
+}
+
+.controls .pause:hover {
+    opacity:.8;
+    transform:scale(1.4);
+}
+
+.controls .rew:hover {
+    opacity:.8;
+    transform:scale(1.0);
+}
+.controls .fwd:hover {
+    opacity:.8;
+    transform:scale(1.0);
+}
+.hidden {
+    display:none;
+}
+.controls .visible {
+    display:block;
+}
+.volume {
+    cursor:pointer;
+    height:10px;
+    left:211px;
+    position:absolute;
+    top:18px;
+    width:80px;
+    transform:translateY(-50%);
+    background:#222;
+    border-radius:4px
+}
+.player .fa-volume-up {
+    color:#888;
+    position:absolute;
+    top:12px;
+    left:191px;
+    font-size:13px;
+}
+.player .in-time {
+    color:#888;
+    position:absolute;
+    bottom:7px;
+    left:176px;
+    font-size:10px;
+    font-weight:bold;
+}
+.player .full-time {
+    color:#888;
+    position:absolute;
+    bottom:7px;
+    right:15px;
+    font-size:10px;
+    font-weight:bold;
+}
+.tracker {
+    cursor:pointer;
+    height:10px;
+    position:absolute;
+    bottom:10px;
+    left:211px;
+    width:calc(100% - 261px);
+    background:#222;
+    border-radius:4px;
+    opacity:1;
+}
+.tracker .ui-slider-range {
+    height:8px;
+    opacity:1;
+}
+.ui-slider-range {
+    background:
+        transparent
+        url(../uploads/beat-images/colorscover.jpg)
+        no-repeat scroll center top;
+    border-radius:4px;
+    background-size:50000px;
+    background-position:center;
+    height:8px;
+    position:absolute;
+    top:1px;
+    left:1px;
+    right:1px;
+    opacity:1;
+}
+.ui-slider-handle {
+    cursor:pointer;
+    height:8px;
+    margin-left:-5px;
+    position:absolute;
+    top:2px;
+    width:10px;
+    z-index:2;
+    display:none;
+}
+.volume .ui-slider-handle {
+    background:rgba(255,255,255,1);
+    height:9px;
+    width:9px;
+    top:-3px;
+    border-radius:50%;
+}
+
+.playlist {
+    list-style-type:none;
+    position:relative;
+    width:100%;
+    margin:0;
+}
+
+.playlist .slide {
+    color: #eee;
+    cursor: pointer;
+    transition:.3s all ease-in-out;
+    transform:scale(.98);
+}
+
+.playlist .slide img:hover {
+    box-shadow:0 0 7px #ffc82c;
+}
+
+.playlist .slide img:active {
+    transition:.0s;
+    transform:scale(.98);
+}
+
+.playlist .slide.active {
+    transform:scale(1.05);
+}
+/*-------------------------------------------------------------------------------------------------------
+    //MUSIC PLAYER
+--------------------------------------------------------------------------------------------------------*/
