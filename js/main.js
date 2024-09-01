@@ -159,18 +159,37 @@
 //     });
 // });
 
-const body = document.querySelector("body");
-const playlist = document.querySelector(".playlist");
-const openPlayList = document.querySelector(".open_playlist");
+const selectElement = function (className) {
+  return document.querySelector("." + className);
+};
+
+const body = selectElement("body");
+const playlist = selectElement("playlist");
+const openPlayList = selectElement("open_playlist");
+const tracks = selectElement("tracks");
+const forward = selectElement("forward");
+const backward = selectElement("backward");
 
 const togglePlaylist = function () {
-    playlist.classList.toggle("playlist-active");
+  playlist.classList.toggle("playlist-active");
 };
 
 openPlayList.addEventListener("click", () => {
-    togglePlaylist();
+  togglePlaylist();
 });
 
-const tracks = document.querySelector("tracks");
+const nextTrack = function () {
+  tracks.appendChild(tracks.firstElementChild);
+};
 
-const selectTrack = function () {};
+const previousTrack = function () {
+  tracks.appendChild(tracks.firstElementChild);
+};
+
+forward.addEventListener("click", () => {
+  nextTrack();
+});
+
+backward.addEventListener("click", () => {
+  previousTrack();
+});
