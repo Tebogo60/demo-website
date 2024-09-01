@@ -183,7 +183,8 @@ const nextTrack = function () {
 };
 
 const previousTrack = function () {
-  tracks.appendChild(tracks.firstElementChild);
+  const cloneLast = tracks.lastElementChild;
+  tracks.insertBefore(cloneLast, tracks.firstElementChild);
 };
 
 forward.addEventListener("click", () => {
