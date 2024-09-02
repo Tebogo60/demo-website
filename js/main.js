@@ -167,8 +167,11 @@ const body = selectElement("body");
 const playlist = selectElement("playlist");
 const openPlayList = selectElement("open_playlist");
 const tracks = selectElement("tracks");
+
 const forward = selectElement("forward");
 const backward = selectElement("backward");
+const play = selectElement("play");
+const pause = selectElement("pause");
 
 const togglePlaylist = function () {
   playlist.classList.toggle("playlist-active");
@@ -194,3 +197,20 @@ forward.addEventListener("click", () => {
 backward.addEventListener("click", () => {
   previousTrack();
 });
+
+const playButton = function () {
+  play.classList.toggle("play-active");
+  pause.classList.toggle("play-active");
+};
+
+play.addEventListener("click", () => {
+  playButton();
+});
+
+pause.addEventListener("click", () => {
+  playButton();
+});
+
+const currentTrack = function () {
+  let track = document.querySelector("")
+}
