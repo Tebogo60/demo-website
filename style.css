@@ -1,376 +1,382 @@
 :root {
-  --black: #1e1e1e;
-  --bg-gradient-top: linear-gradient(to top, #1e1e1e, #101010);
-  --bg-gradient-bottom: linear-gradient(to bottom, #1e1e1e, hsl(0, 0%, 6%));
-  --test-color: linear-gradient(to top, #630c6b, #c218d1);
-  --test-color-2: linear-gradient(to right, #630c6b, #c218d1);
-  --whitish: #555;
-  --white: #aaa;
+    --black: #1e1e1e;
+    --bg-gradient-top: linear-gradient(to top, #1e1e1e, #101010);
+    --bg-gradient-bottom: linear-gradient(to bottom, #1e1e1e, hsl(0, 0%, 6%));
+    --test-color: linear-gradient(to top, #630c6b, #c218d1);
+    --test-color-2: linear-gradient(to right, #630c6b, #c218d1);
+    --whitish: #555;
+    --white: #aaa;
 }
 
 body {
-  font-family: inter, sans-serif;
+    font-family: ubuntu;
 
-  position: relative;
-  background: var(--bg-gradient-top);
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+    position: relative;
+    background: var(--bg-gradient-top);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 /* trackers */
 .volume {
-  background: var(--test-color);
-  position: absolute;
-  width: 3px;
-  height: 100%;
+    background: var(--test-color);
+    position: absolute;
+    width: 3px;
+    height: 100%;
 }
 
 .track-tracker {
-  background: var(--test-color-2);
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  bottom: 0;
+    background: var(--test-color-2);
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
 }
 
 .controllers {
-  color: var(--whitish);
-  position: absolute;
-  background: var(--black);
-  /* border: 2px solid var(--whitish); */
-  border-radius: 35px;
-  width: 200px;
-  height: 65px;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+    color: var(--whitish);
+    position: absolute;
+    background: var(--black);
+    /* border: 2px solid var(--whitish); */
+    border-radius: 35px;
+    width: 200px;
+    height: 65px;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .controllers .ctrl {
-  font-size: 25px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .controllers .ctrl:nth-child(1) {
-  left: 25px;
+    left: 25px;
 }
 
 .controllers .ctrl:nth-child(2),
 .controllers .ctrl:nth-child(3) {
-  left: 50%;
-  transform: translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .controllers .ctrl:nth-child(2) {
-  left: 103px;
+    left: 103px;
 }
 
 .controllers .ctrl:nth-child(4) {
-  right: 25px;
+    right: 25px;
 }
 
 .controllers .ctrl:hover {
-  color: var(--white);
+    color: var(--white);
 }
 
 .play,
 .pause {
-  z-index: 1;
-  transform: scale(0);
-  display: none;
-  transition: 0.3s ease;
+    z-index: 1;
+    transform: scale(0);
+    display: none;
+    transition: 0.3s ease;
 }
 
 .play-active {
-  z-index: 2;
-  transform: scale(1);
-  display: block;
+    z-index: 2;
+    transform: scale(1);
+    display: block;
 }
 
 .tracks {
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }
 
 .tracks .track {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  left: auto;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 5px 25px 25px rgb(0, 0, 0, 0.5);
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: auto;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 25px 25px rgb(0, 0, 0, 0.5);
 
-  transition: 0.5s ease;
+    transition: 0.5s ease;
 }
 
 .tracks .track img {
-  position: absolute;
-  width: 100%;
-  top: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
 }
 
 .active-track {
-  border: 5px solid var(--white);
-  z-index: 6;
+    border: 5px solid var(--white);
+    z-index: 6;
 }
 
 .tracks .track:nth-child(1) {
-  left: calc(50% - 133px - 127.5px - 108.5px - 92px - 78.5px);
-  transform: translate(0, -50%);
-  width: 133px;
-  height: 133px;
-  z-index: 1;
-  opacity: 0.1;
+    left: calc(50% - 133px - 127.5px - 108.5px - 92px - 78.5px);
+    transform: translate(0, -50%);
+    width: 133px;
+    height: 133px;
+    z-index: 1;
+    opacity: 0.1;
 }
 
 .tracks .track:nth-child(2) {
-  left: calc(50% - 157px - 127.5px - 108.5px - 92px);
-  transform: translate(0, -50%);
-  width: 157px;
-  height: 157px;
-  z-index: 12;
-  opacity: 0.3;
+    left: calc(50% - 157px - 127.5px - 108.5px - 92px);
+    transform: translate(0, -50%);
+    width: 157px;
+    height: 157px;
+    z-index: 12;
+    opacity: 0.3;
 }
 
 .tracks .track:nth-child(3) {
-  left: calc(50% - 184px - 127.5px - 108.5px);
-  transform: translate(0, -50%);
-  width: 184px;
-  height: 184px;
-  z-index: 3;
-  opacity: 0.5;
+    left: calc(50% - 184px - 127.5px - 108.5px);
+    transform: translate(0, -50%);
+    width: 184px;
+    height: 184px;
+    z-index: 3;
+    opacity: 0.5;
 }
 
 .tracks .track:nth-child(4) {
-  left: calc(50% - 217px - 127.5px);
-  transform: translate(0, -50%);
-  width: 217px;
-  height: 217px;
-  z-index: 4;
-  opacity: 0.7;
+    left: calc(50% - 217px - 127.5px);
+    transform: translate(0, -50%);
+    width: 217px;
+    height: 217px;
+    z-index: 4;
+    opacity: 0.7;
 }
 
 .tracks .track:nth-child(5) {
-  left: calc(50% - 255px);
-  transform: translate(0, -50%);
-  width: 255px;
-  height: 255px;
-  z-index: 5;
-  opacity: 0.9;
+    left: calc(50% - 255px);
+    transform: translate(0, -50%);
+    width: 255px;
+    height: 255px;
+    z-index: 5;
+    opacity: 0.9;
 }
 
 .tracks .track:nth-child(6) {
-  left: calc(50% - 150px);
-  transform: translate(0, -50%);
-  width: 300px;
-  height: 300px;
-  border: 5px solid var(--black);
-  z-index: 10;
+    left: calc(50% - 150px);
+    transform: translate(0, -50%);
+    width: 300px;
+    height: 300px;
+    border: 5px solid var(--black);
+    z-index: 10;
 }
 
 .tracks .track:nth-child(7) {
-  left: 50%;
-  transform: translate(0, -50%);
-  width: 255px;
-  height: 255px;
-  z-index: 5;
-  opacity: 0.9;
+    left: 50%;
+    transform: translate(0, -50%);
+    width: 255px;
+    height: 255px;
+    z-index: 5;
+    opacity: 0.9;
 }
 
 .tracks .track:nth-child(8) {
-  left: calc(50% + 127.5px);
-  transform: translate(0, -50%);
-  width: 217px;
-  height: 217px;
-  z-index: 4;
-  opacity: 0.7;
+    left: calc(50% + 127.5px);
+    transform: translate(0, -50%);
+    width: 217px;
+    height: 217px;
+    z-index: 4;
+    opacity: 0.7;
 }
 
 .tracks .track:nth-child(9) {
-  left: calc(50% + 127.5px + 108.5px);
-  transform: translate(0, -50%);
-  width: 184px;
-  height: 184px;
-  z-index: 3;
-  opacity: 0.5;
+    left: calc(50% + 127.5px + 108.5px);
+    transform: translate(0, -50%);
+    width: 184px;
+    height: 184px;
+    z-index: 3;
+    opacity: 0.5;
 }
 
 .tracks .track:nth-child(10) {
-  left: calc(50% + 127.5px + 108.5px + 92px);
-  transform: translate(0, -50%);
-  width: 157px;
-  height: 157px;
-  z-index: 2;
-  opacity: 0.3;
+    left: calc(50% + 127.5px + 108.5px + 92px);
+    transform: translate(0, -50%);
+    width: 157px;
+    height: 157px;
+    z-index: 2;
+    opacity: 0.3;
 }
 
 .tracks .track:nth-child(11) {
-  left: calc(50% + 127.5px + 108.5px + 92px + 78.5px);
-  transform: translate(0, -50%);
-  width: 133px;
-  height: 133px;
-  z-index: 1;
-  opacity: 0.1;
+    left: calc(50% + 127.5px + 108.5px + 92px + 78.5px);
+    transform: translate(0, -50%);
+    width: 133px;
+    height: 133px;
+    z-index: 1;
+    opacity: 0.1;
 }
 
 .playlist {
-  position: fixed;
-  height: calc(100vh - 3px);
-  width: calc(400px - 50px);
+    position: fixed;
+    height: calc(100vh - 3px);
+    width: calc(400px - 50px);
 
-  background: rgb(0, 0, 0, 0);
-  top: 0;
-  right: -400px;
-  padding: 25px;
-  z-index: 8;
+    background: rgb(0, 0, 0, 0);
+    top: 0;
+    right: -400px;
+    padding: 25px;
+    z-index: 8;
 
-  transition: 0.5s ease;
+    transition: 0.5s ease;
 }
 
 .playlist-active {
-  background: var(--black);
-  right: 0;
+    background: var(--black);
+    right: 0;
 }
 
 .playlist .playlist-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
 }
 
 .playlist .playlist-header::after {
-  content: "";
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
 
-  background: var(--white);
-  width: calc(100% - 50px);
-  height: 1px;
-  opacity: 0.2;
+    background: var(--white);
+    width: calc(100% - 50px);
+    height: 1px;
+    opacity: 0.2;
 }
 
 .playlist h5 {
-  position: absolute;
-  color: var(--white);
-  left: 25px;
-  top: 50%;
+    position: absolute;
+    color: var(--white);
+    left: 25px;
+    top: 50%;
 }
 
 .playlist .playlist-tracks {
-  position: absolute;
-  top: 71px;
-  height: calc(100vh - 71px);
-  width: calc(100% - 50px);
+    position: absolute;
+    top: 71px;
+    height: calc(100vh - 71px);
+    width: calc(100% - 50px);
 }
 
 .playlist .playlist-tracks .playlist-track {
-  position: relative;
-  height: 60px;
-  width: 100%;
-  overflow-x: hidden;
-  margin-top: 15px;
-  cursor: pointer;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    overflow-x: hidden;
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 .playlist .playlist-tracks .playlist-track:hover {
-  opacity: 0.75;
+    opacity: 0.75;
 }
 
 .playlist .playlist-tracks .playlist-track img {
-  width: 60px;
-  height: 60px;
-  border-radius: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
 }
 
 .playlist .playlist-tracks .playlist-track h5 {
-  position: absolute;
-  top: calc(50% - 0.5px);
-  left: 75px;
-  transform: translateY(-50%);
+    position: absolute;
+    top: calc(50% - 0.5px);
+    left: 75px;
+    transform: translateY(-50%);
 
-  color: var(--white);
-  font-size: 17px;
-  width: 100%;
-  z-index: 10;
+    color: var(--white);
+    font-size: 17px;
+    width: 100%;
+    z-index: 10;
 }
 
 .playlist-active-track {
-  border-radius: 5px;
-  opacity: 0.5;
+    border-radius: 5px;
+    opacity: 0.5;
 }
 
 .playlist-active-track::after {
-  content: "";
-  position: absolute;
+    content: "";
+    position: absolute;
 
-  background: var(--whitish);
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  border-radius: 10px;
+    background: var(--whitish);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    border-radius: 10px;
 }
 
 .playlist .playlist-tracks .playlist-active-track img {
-  width: 50px;
-  height: 50px;
-  margin-top: 5px;
-  margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 .open_playlist {
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  right: 25px;
-  top: 20px;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 25px;
+    top: 20px;
 
-  color: var(--whitish);
-  font-size: 25px;
+    color: var(--whitish);
+    font-size: 25px;
 
-  cursor: pointer;
-  z-index: 11;
+    cursor: pointer;
+    z-index: 11;
 }
 
 .open_playlist div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .open_playlist:hover {
-  color: var(--white);
+    color: var(--white);
 }
 
 .open_playlist-active:hover {
-  color: var(--white);
+    color: var(--white);
 }
 
 .title {
-  position: absolute;
-  font-size: 32px;
-  color: var(--white);
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    font-size: 30px;
+    color: var(--white);
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none;
 }
