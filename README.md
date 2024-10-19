@@ -1,2 +1,2 @@
 # Music-blog-type-website
-https://tebogomalebana.github.io/demo-website/
+(https://tebogo60.github.io/music_player/)
