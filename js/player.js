@@ -1,9 +1,6 @@
 jQuery(document).ready(function () {
     const title = $(".title");
 
-    const body = $(".body");
-    const playlist = $(".playlist");
-    const openPlayList = $(".open_playlist");
     const tracks = $(".tracks");
 
     const forward = $(".forward");
@@ -25,6 +22,16 @@ jQuery(document).ready(function () {
         title.text(getCurrentTrack().attr("audiourl"));
     };
 
+    const updateTracker = () => {
+        const duration = audio.duration;
+        const currentTime = audio.currentTime;
+
+        // find percentage of (currentTime/duration * 100) Every Sec!
+        const currentPosition = (currentTime / duration) * 100;
+        tracker.css("width", currentPosition + "%");
+        console.log("duration :>> ", duration);
+    };
+
     // initialize audio obj
     const initializeTrack = (url) => {
         audio = new Audio("audio/" + url);
@@ -40,6 +47,8 @@ jQuery(document).ready(function () {
 
         audio.play();
         isPlaying = true;
+
+        audio.addEventListener("timeupdate", updateTracker);
     };
 
     // for pausing the active track
@@ -83,6 +92,8 @@ jQuery(document).ready(function () {
         if (wasPlaying) {
             playTrack();
         }
+
+        tracker.css("width", "0");
     };
 
     forward.click(function (e) {
@@ -103,10 +114,12 @@ jQuery(document).ready(function () {
 
     const increaseVolume = () => {
         audio.volume += 0.1;
+        audio.volume = parseFloat(audio.volume.toFixed(1));
     };
 
     const decreaseVolume = () => {
         audio.volume -= 0.1;
+        audio.volume = parseFloat(audio.volume.toFixed(1));
     };
 
     window.addEventListener("keydown", (e) => {
@@ -126,16 +139,6 @@ jQuery(document).ready(function () {
             } else if (e.key === "ArrowDown" && audio.volume > 0) {
                 decreaseVolume();
             }
-            audio.volume = parseFloat(audio.volume.toFixed(1));
         }
-    });
-
-    audio.addEventListener("timeupdate", () => {
-        const duration = audio.duration;
-        const currentTime = audio.currentTime;
-
-        // find percentage of (currentTime/duration * 100) Every Sec!
-        const currentPosition = (currentTime / duration) * 100;
-        tracker.css("width", currentPosition + "%");
     });
 });
