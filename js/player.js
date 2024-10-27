@@ -11,7 +11,8 @@ jQuery(document).ready(function () {
     const play = $(".play");
     const pause = $(".pause");
 
-    const tracker = $(".tracker");
+    const tracker = $(".track-tracker");
+    const volume = $(".volume");
 
     let isPlaying = false;
     let audio;
@@ -100,14 +101,41 @@ jQuery(document).ready(function () {
         continuePlaying();
     });
 
-    tracker.slider({
-        range: "min",
-        min: 0,
-        max: 10,
-        start: function (event, ui) {},
-        slide: function (event, ui) {
-            audio.currentTime = ui.value;
-        },
-        stop: function (event, ui) {},
+    const increaseVolume = () => {
+        audio.volume += 0.1;
+    };
+
+    const decreaseVolume = () => {
+        audio.volume -= 0.1;
+    };
+
+    window.addEventListener("keydown", (e) => {
+        const keys = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"];
+
+        if (keys.includes(e.key)) {
+            if (e.key === "ArrowRight") {
+                nextTrack();
+                updateTitle();
+                continuePlaying();
+            } else if (e.key === "ArrowLeft") {
+                previousTrack();
+                updateTitle();
+                continuePlaying();
+            } else if (e.key === "ArrowUp" && audio.volume < 1) {
+                increaseVolume();
+            } else if (e.key === "ArrowDown" && audio.volume > 0) {
+                decreaseVolume();
+            }
+            audio.volume = parseFloat(audio.volume.toFixed(1));
+        }
+    });
+
+    audio.addEventListener("timeupdate", () => {
+        const duration = audio.duration;
+        const currentTime = audio.currentTime;
+
+        // find percentage of (currentTime/duration * 100) Every Sec!
+        const currentPosition = (currentTime / duration) * 100;
+        tracker.css("width", currentPosition + "%");
     });
 });
