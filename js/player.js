@@ -121,11 +121,17 @@ jQuery(document).ready(function () {
     const increaseVolume = () => {
         audio.volume += 0.1;
         audio.volume = parseFloat(audio.volume.toFixed(1));
+        updateVolumeTracker(audio.volume);
     };
 
     const decreaseVolume = () => {
         audio.volume -= 0.1;
         audio.volume = parseFloat(audio.volume.toFixed(1));
+        updateVolumeTracker(audio.volume);
+    };
+
+    const updateVolumeTracker = (volumeValue) => {
+        volume.css("height", volumeValue * 100 + "%");
     };
 
     window.addEventListener("keydown", (e) => {
@@ -149,14 +155,11 @@ jQuery(document).ready(function () {
     });
 
     window.addEventListener("wheel", function (e) {
+        e.preventDefault();
         if (e.deltaY < 0) {
-            if (audio.volume < 1) {
-                audio.volume = Math.min(audio.volume + 0.1, 1); // Cap volume at 1 (100%)
-            }
+            increaseVolume();
         } else {
-            if (audio.volume > 0) {
-                audio.volume = Math.max(audio.volume - 0.1, 0); // Bottom out volume at 0
-            }
+            decreaseVolume();
         }
     });
 });
