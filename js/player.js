@@ -30,6 +30,12 @@ jQuery(document).ready(function () {
         const currentPosition = (currentTime / duration) * 100;
         tracker.css("width", currentPosition + "%");
         console.log("duration :>> ", duration);
+
+        if (currentTime === duration) {
+            nextTrack();
+            updateTitle();
+            continuePlaying();
+        }
     };
 
     // initialize audio obj
@@ -138,6 +144,18 @@ jQuery(document).ready(function () {
                 increaseVolume();
             } else if (e.key === "ArrowDown" && audio.volume > 0) {
                 decreaseVolume();
+            }
+        }
+    });
+
+    window.addEventListener("wheel", function (e) {
+        if (e.deltaY < 0) {
+            if (audio.volume < 1) {
+                audio.volume = Math.min(audio.volume + 0.1, 1); // Cap volume at 1 (100%)
+            }
+        } else {
+            if (audio.volume > 0) {
+                audio.volume = Math.max(audio.volume - 0.1, 0); // Bottom out volume at 0
             }
         }
     });
