@@ -118,6 +118,8 @@ jQuery(document).ready(function () {
         continuePlaying();
     });
 
+    volume.css("50%");
+
     const increaseVolume = () => {
         audio.volume += 0.1;
         audio.volume = parseFloat(audio.volume.toFixed(1));
@@ -154,8 +156,7 @@ jQuery(document).ready(function () {
         }
     });
 
-    window.addEventListener("wheel", function (e) {
-        e.preventDefault();
+    window.addEventListener("wheel", (e) => {
         if (e.deltaY < 0) {
             increaseVolume();
         } else {
