@@ -118,7 +118,9 @@ jQuery(document).ready(function () {
         continuePlaying();
     });
 
-    volume.css("50%");
+    // initialize volume
+    volume.css("height", "50%");
+    audio.volume = 0.5;
 
     const increaseVolume = () => {
         audio.volume += 0.1;
@@ -163,6 +165,4 @@ jQuery(document).ready(function () {
             decreaseVolume();
         }
     });
-
-    
 });
